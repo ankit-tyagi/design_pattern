@@ -1,4 +1,4 @@
-package corepatterns;
+package com.tyagi.Singleton;
 
 public class DateUtil {
 
