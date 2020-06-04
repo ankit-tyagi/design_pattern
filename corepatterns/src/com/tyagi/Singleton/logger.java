@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class logger implements Serializable,Cloneable{
 	
-	private static logger instance = null;
+	private static volatile logger instance = null;
 	
 	private logger()
 	{
