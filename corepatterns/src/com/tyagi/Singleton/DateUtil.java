@@ -2,7 +2,7 @@ package com.tyagi.Singleton;
 
 import java.io.Serializable;
 
-public class DateUtil implements Serializable {
+public class DateUtil implements Serializable, Cloneable {
 
 	/**
 	 * 
@@ -28,5 +28,17 @@ public class DateUtil implements Serializable {
 			}
 		}
 		return instance;
+	}
+	
+	public Object readResolve()
+	{
+		return instance;
+		
+	}
+	
+	@Override
+	protected Object clone() throws CloneNotSupportedException
+	{
+		return super.clone();
 	}
 }
