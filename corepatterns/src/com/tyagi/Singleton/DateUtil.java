@@ -1,8 +1,15 @@
 package com.tyagi.Singleton;
 
-public class DateUtil {
+import java.io.Serializable;
 
-	private static DateUtil instance;
+public class DateUtil implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private static volatile DateUtil instance;
 	
 	private DateUtil()
 	{
@@ -13,7 +20,12 @@ public class DateUtil {
 	{
 		if(instance == null)
 		{
-			instance = new DateUtil();
+			synchronized (DateUtil.class) {
+				if(instance == null)
+				{
+					instance = new DateUtil();
+				}
+			}
 		}
 		return instance;
 	}
